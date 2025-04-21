@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_training_session_tree" model="ir.ui.view">
-        <field name="name">training.session.tree</field>
+    <!-- List View -->
+    <record id="view_training_session_list" model="ir.ui.view">
+        <field name="name">training.session.list</field>
         <field name="model">training.session</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="date"/>
                 <field name="player_id"/>
                 <field name="duration"/>
                 <field name="focus_area"/>
                 <field name="performance_rating"/>
-            </tree>
+            </list>
         </field>
     </record>
 
+    <!-- Form View -->
     <record id="view_training_session_form" model="ir.ui.view">
         <field name="name">training.session.form</field>
         <field name="model">training.session</field>
@@ -40,11 +42,10 @@
         </field>
     </record>
 
-    <menuitem id="menu_kabaddi_sessions" name="Training Sessions" parent="menu_kabaddi_root" action="action_training_session"/>
-    
+    <!-- Window Action -->
     <record id="action_training_session" model="ir.actions.act_window">
         <field name="name">Training Sessions</field>
         <field name="res_model">training.session</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

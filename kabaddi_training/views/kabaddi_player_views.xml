@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_kabaddi_player_tree" model="ir.ui.view">
-        <field name="name">kabaddi.player.tree</field>
+    <!-- List View -->
+    <record id="view_kabaddi_player_list" model="ir.ui.view">
+        <field name="name">kabaddi.player.list</field>
         <field name="model">kabaddi.player</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="name"/>
-                <field name="age"/>
-                <field name="position"/>
-                <field name="total_sessions"/>
-            </tree>
+            <list>
+                <field name="name" string="Player Name"/>
+                <field name="age" string="Age"/>
+                <field name="position" string="Position"/>
+                <field name="total_sessions" string="Total Sessions"/>
+            </list>
         </field>
     </record>
 
+    <!-- Form View -->
     <record id="view_kabaddi_player_form" model="ir.ui.view">
         <field name="name">kabaddi.player.form</field>
         <field name="model">kabaddi.player</field>
@@ -33,13 +35,21 @@
                     </group>
                     <notebook>
                         <page string="Training Sessions">
-                            <field name="session_ids" mode="tree,form">
-                                <tree>
+                            <field name="session_ids" mode="list,form">
+                                <list>
                                     <field name="date"/>
                                     <field name="duration"/>
                                     <field name="focus_area"/>
                                     <field name="performance_rating"/>
-                                </tree>
+                                </list>
+                                <form>
+                                    <field name="name"/>
+                                    <field name="date"/>
+                                    <field name="duration"/>
+                                    <field name="focus_area"/>
+                                    <field name="performance_rating"/>
+                                    <field name="notes"/>
+                                </form>
                             </field>
                         </page>
                     </notebook>
@@ -48,12 +58,10 @@
         </field>
     </record>
 
-    <menuitem id="menu_kabaddi_root" name="Kabaddi Training"/>
-    <menuitem id="menu_kabaddi_players" name="Players" parent="menu_kabaddi_root" action="action_kabaddi_player"/>
-    
+    <!-- Window Action -->
     <record id="action_kabaddi_player" model="ir.actions.act_window">
         <field name="name">Kabaddi Players</field>
         <field name="res_model">kabaddi.player</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
     </record>
 </odoo>

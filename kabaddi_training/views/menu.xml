@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Main Kabaddi Menu -->
+        <menuitem id="menu_kabaddi_root" name="Kabaddi Training" sequence="10"/>
+        
+        <!-- Players Submenu -->
+        <menuitem id="menu_kabaddi_players" 
+                 name="Players" 
+                 parent="menu_kabaddi_root" 
+                 action="action_kabaddi_player"
+                 sequence="20"/>
+        
+        <!-- Training Sessions Submenu -->
+        <menuitem id="menu_kabaddi_sessions" 
+                 name="Training Sessions" 
+                 parent="menu_kabaddi_root" 
+                 action="action_training_session"
+                 sequence="30"/>
+    </data>
+</odoo>

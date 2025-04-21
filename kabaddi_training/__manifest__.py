@@ -20,30 +20,26 @@
 ##############################################################################
 
 {
-    'name': 'sample_module',
+    'name': 'kabaddi_training',
     'version': '18.0.0.0',
-    'summary': 'madre mia',
-    'description': """ This Module  is for training purposes.
+    'summary': 'Manage Kabaddi Training Sessions and Players',
+    'description': """
+        This module helps manage kabaddi training sessions and track player progress.
     """,
-    'category':'Training',
-    'author': 'Manja',
+    'author': 'manja',
     'website': 'www.zbeanztech.com',
-    "license": "LGPL-3",
-    'depends': ['base','sale','sale_management','account','contacts','product'],
+    'category': 'Sports',
+    'license': "LGPL-3",
+    'depends': ['base'],
     'data': [
-				'security/ir.model.access.csv',
-                'security/security.xml',
-                'data/sequence.xml',
-                'views/car_rental_view.xml',
-                'views/food_view.xml',
-                'views/model_one_view.xml',
-                'views/model_one_lines.xml',
-                'views/menu.xml',
-				
-        ],
+        'security/ir.model.access.csv',
+        'data/sequence.xml',
+        'views/kabaddi_player_views.xml',
+        'views/training_session_views.xml',
+        'views/menu.xml',
+    ],
     'test': [],
     'demo': [],
     'installable': True,
-    'auto_install': False,
-    'application': False,
+    'application': True,
 }
